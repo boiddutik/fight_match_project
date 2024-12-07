@@ -99,16 +99,21 @@ class AuthNotifier extends StateNotifier<Auth?> {
           }
         },
         (response) async {
+          // showSnackbar(context, 'Login successful!');
           final userId = response.data!['_id'];
+          print(userId);
+          // final profileId = response.profile!['_id'];
           final jwt = response.jwt!;
           final rwt = response.rwt!;
           await SecureStorageService().saveUserCredentials(
             email,
             password,
             userId,
+            // profileId,
             jwt,
             rwt,
           );
+          // Create an Auth object and update the state
           final auth = Auth(
             userId: userId,
             userName: response.data!['userName'],
