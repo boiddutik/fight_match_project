@@ -2,21 +2,23 @@ import 'package:fight_match_app/core/constants/icons.dart';
 import 'package:fight_match_app/core/constants/svgs.dart';
 import 'package:fight_match_app/core/utils/navigators.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/constants/palette.dart';
 import '../../../core/utils/snackbar.dart';
+import '../notifiers/create_profile_notifier.dart';
 import '../widgets/auth_field.dart';
 import 'create_profile_screen.dart';
 
-class SignupScreen extends StatefulWidget {
+class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  ConsumerState<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SignupScreenState extends ConsumerState<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -149,12 +151,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     'Password must contain at least one special character!');
                 return;
               }
-              navigateAndRemoveUntil(
-                  context,
-                  CreateProfileScreen(
-                    email: email,
-                    password: password,
-                  ));
+              // navigateAndRemoveUntil(
+              //     context,
+              //     CreateProfileScreen(
+              //       email: email,
+              //       password: password,
+              //     ));
+              ref
+                  .read(createProfileProvider.notifier)
+                  .addEmailandPassword(context, email, password);
             },
             child: const Text('Continue'),
           ),

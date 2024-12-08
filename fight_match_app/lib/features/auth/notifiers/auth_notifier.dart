@@ -24,6 +24,25 @@ class AuthNotifier extends StateNotifier<Auth?> {
         _authApi = authApi,
         super(null);
 
+  int? getProfileCompletionPercentage() {
+    int totalFields = 0;
+    int filledFields = 0;
+    final userFields = state!.profile.toJson();
+    totalFields = userFields.length;
+    userFields.forEach((key, value) {
+      if (value is List) {
+        if (value.isNotEmpty) filledFields++;
+      } else if (value != null && value.toString().isNotEmpty) {
+        filledFields++;
+      }
+    });
+    int completionPercentage = ((filledFields / totalFields) * 100).toInt();
+    if (completionPercentage > 60) {
+      return null;
+    }
+    return completionPercentage;
+  }
+
   Future<void> createUser({
     required BuildContext context,
     required String email,
@@ -37,9 +56,10 @@ class AuthNotifier extends StateNotifier<Auth?> {
     required DateTime dob,
     required File avatar,
     required File? cover,
+    String? userName,
   }) async {
     _loader.setLoadingTo(true);
-    final username = generateUsername(email);
+    final username = userName ?? generateUsername(email);
     try {
       final userCreationResult = await _authApi.createUser(
         userName: username,
@@ -101,7 +121,6 @@ class AuthNotifier extends StateNotifier<Auth?> {
         (response) async {
           // showSnackbar(context, 'Login successful!');
           final userId = response.data!['_id'];
-          print(userId);
           // final profileId = response.profile!['_id'];
           final jwt = response.jwt!;
           final rwt = response.rwt!;
@@ -123,6 +142,7 @@ class AuthNotifier extends StateNotifier<Auth?> {
             profile: User.fromJson(response.data!),
           );
           state = auth;
+          // print(state!.profile);
           if (context.mounted) {
             navigateAndRemoveUntil(context, const DashboardInitScreen());
           }

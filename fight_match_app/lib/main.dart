@@ -25,6 +25,7 @@ class FightMatchApp extends StatelessWidget {
           selectionColor: Palette.black.withOpacity(0.3),
           selectionHandleColor: Palette.black,
         ),
+        iconTheme: const IconThemeData(color: Palette.liteBlack),
         scaffoldBackgroundColor: Palette.white,
         appBarTheme: const AppBarTheme(
           elevation: 0,

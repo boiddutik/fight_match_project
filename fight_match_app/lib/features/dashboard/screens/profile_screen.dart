@@ -2,6 +2,7 @@ import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter/material.dart';
+import '../../../core/constants/icons.dart';
 import '../../../core/utils/navigators.dart';
 import '../../../repositories/base_url.dart';
 import '../../dashboard/screens/notification_screen.dart';
@@ -22,7 +23,7 @@ class ProfileScreen extends ConsumerWidget {
             onPressed: () {
               navigate(context, const SearchScreen());
             },
-            icon: const Icon(Icons.search)),
+            icon: const Icon(CustomIcons.next)),
         title: const Text(
           'Profile',
           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
@@ -51,8 +52,9 @@ class ProfileScreen extends ConsumerWidget {
                     child: Column(
                       children: [
                         CircleAvatar(
+                          radius: 50,
                           backgroundImage:
-                              NetworkImage('$baseUrl${userProfile.avatar}'),
+                              NetworkImage('$baseUrl/${userProfile.avatar}'),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -106,61 +108,61 @@ class ProfileScreen extends ConsumerWidget {
                 },
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.editProfile),
                 ),
                 title: const Text(
                   'Edit Profile',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
               ListTile(
                 onTap: () {},
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.changePassword),
                 ),
                 title: const Text(
                   'Change Password',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
               ListTile(
                 onTap: () {},
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.helpSupport),
                 ),
                 title: const Text(
                   'Help & Support',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
               ListTile(
                 onTap: () {},
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.privacyPolicy),
                 ),
                 title: const Text(
                   'Privacy Policy',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
               ListTile(
                 onTap: () {},
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.rateApp),
                 ),
                 title: const Text(
                   'Feedback',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
               ListTile(
                 onTap: () {
@@ -168,13 +170,13 @@ class ProfileScreen extends ConsumerWidget {
                 },
                 leading: const CircleAvatar(
                   backgroundColor: Color(0xFFf8f8f8),
-                  child: Icon(Icons.search),
+                  child: Icon(CustomIcons.signOut),
                 ),
                 title: const Text(
                   'Sign out',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                trailing: const Icon(Icons.search),
+                trailing: const Icon(CustomIcons.next),
               ),
             ],
           ),
