@@ -83,7 +83,7 @@ class Post {
   final DateTime? eventDate;
 
   Post({
-    this.postId,
+    String? postId,
     required this.postType,
     required this.privacyType,
     required this.creatorUserId,
@@ -93,21 +93,29 @@ class Post {
     required this.creatorAvatar,
     required this.caption,
     this.description,
-    this.createdAt,
+    DateTime? createdAt,
     this.updatedAt,
-    this.medium,
-    this.likes,
-    this.unLikes,
-    this.comments,
-    this.shares,
-    this.views,
-    this.reports,
+    List<Media>? medium,
+    List<String>? likes,
+    List<String>? unLikes,
+    List<String>? comments,
+    List<String>? shares,
+    List<String>? views,
+    List<String>? reports,
     this.associates,
     this.eventVenue,
     this.eventLatitude,
     this.eventLongitude,
     this.eventDate,
-  });
+  })  : postId = postId ?? DateTime.now().toString(),
+        createdAt = createdAt ?? DateTime.now(),
+        medium = medium ?? List.empty(growable: true),
+        likes = likes ?? List.empty(growable: true),
+        unLikes = unLikes ?? List.empty(growable: true),
+        comments = comments ?? List.empty(growable: true),
+        shares = shares ?? List.empty(growable: true),
+        views = views ?? List.empty(growable: true),
+        reports = reports ?? List.empty(growable: true);
 
   Post copyWith({
     String? postId,
