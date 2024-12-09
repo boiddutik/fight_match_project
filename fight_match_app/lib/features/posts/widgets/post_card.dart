@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_time_ago/get_time_ago.dart';
 
 import '../../../core/constants/icons.dart';
+import '../../../models/media.dart';
 import '../../../models/post.dart';
 
 class PostCard extends ConsumerWidget {

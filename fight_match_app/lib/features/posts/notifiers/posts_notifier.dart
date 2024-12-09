@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/utils/snackbar.dart';
 import '../../../models/auth.dart';
+import '../../../models/media.dart';
 import '../../../repositories/remote/post_api.dart';
 
 class PostsNotifier extends StateNotifier<List<Post>?> {
@@ -34,7 +35,7 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
               creatorFullName: "John Doe",
               creatorAvatar:
                   "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-              privacy: "public",
+              privacyType: PrivacyType.public,
               caption: "This is a post caption.",
               description: "This is the detailed description of the post.",
               createdAt: DateTime.parse("2024-12-09T05:16:54Z"),
@@ -75,7 +76,7 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
               creatorFullName: "John Doe",
               creatorAvatar:
                   "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-              privacy: "public",
+              privacyType: PrivacyType.public,
               caption: "This is a highlight caption.",
               description: "This is the detailed description of the highlight.",
               createdAt: DateTime.parse("2024-12-09T05:16:54Z"),
@@ -116,7 +117,7 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
               creatorFullName: "John Doe",
               creatorAvatar:
                   "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-              privacy: "public",
+              privacyType: PrivacyType.public,
               caption: "This is an event caption.",
               description:
                   "Details of the event, where it's happening and who is invited.",
@@ -171,7 +172,7 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
               creatorFullName: "John Doe",
               creatorAvatar:
                   "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-              privacy: "public",
+              privacyType: PrivacyType.public,
               caption: "This is a reel caption.",
               description: "This is the detailed description of the reel.",
               createdAt: DateTime.parse("2024-12-09T05:16:54Z"),
