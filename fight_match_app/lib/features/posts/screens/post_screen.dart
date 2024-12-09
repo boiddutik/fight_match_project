@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:fight_match_app/core/constants/icons.dart';
 import 'package:fight_match_app/core/constants/palette.dart';
+import 'package:fight_match_app/core/utils/navigators.dart';
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
+import 'package:fight_match_app/features/posts/screens/event_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:video_player/video_player.dart';
@@ -266,7 +268,9 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                         ),
                       ),
                       ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          navigate(context, const EventScreen());
+                        },
                         leading: const Icon(CustomIcons.events),
                         title: const Text(
                           'Event',

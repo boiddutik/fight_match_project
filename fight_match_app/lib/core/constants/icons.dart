@@ -6,6 +6,7 @@ class CustomIcons {
   static const IconData showPassword = HugeIcons.strokeRoundedView;
   static const IconData globalSearch = HugeIcons.strokeRoundedGlobalSearch;
   static const IconData calendar = HugeIcons.strokeRoundedCalendar03;
+  static const IconData time = HugeIcons.strokeRoundedClock01;
   static const IconData cover = HugeIcons.strokeRoundedInsertCenterImage;
   static const IconData avatar = HugeIcons.strokeRoundedUserCircle;
   static const IconData camera = HugeIcons.strokeRoundedCamera01;
