@@ -64,7 +64,8 @@ class AuthNotifier extends StateNotifier<Auth?> {
               following: ["userLegend1", "userLegend2"],
               blockList: ["blockedMike1"],
               isOnline: true,
-              lastOnlineAt: DateTime.now().subtract(Duration(minutes: 30)),
+              lastOnlineAt:
+                  DateTime.now().subtract(const Duration(minutes: 30)),
               lastOnlineAtVisible: true,
               activityCount: 120,
               isPrivateProfile: false,
@@ -75,7 +76,7 @@ class AuthNotifier extends StateNotifier<Auth?> {
               achievements: ["WBC Champion", "WBA Champion", "IBF Champion"],
               refreshToken: "mikeTysonRefreshToken",
               createdAt: DateTime.now().subtract(
-                  Duration(days: 365 * 20)), // Approximate account age
+                  const Duration(days: 365 * 20)), // Approximate account age
               updatedAt: DateTime.now(),
             ),
           ),

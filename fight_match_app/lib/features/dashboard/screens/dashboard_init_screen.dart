@@ -13,7 +13,9 @@ class DashboardInitScreen extends ConsumerWidget {
       // ref.read(dashboardInitProvider.notifier).initialize(context);
       // ignore: prefer_const_constructors
       Future.delayed(Duration(seconds: 2), () {
-        navigateAndRemoveUntil(context, const DashboardScreen());
+        if (context.mounted) {
+          navigateAndRemoveUntil(context, const DashboardScreen());
+        }
       });
     });
 

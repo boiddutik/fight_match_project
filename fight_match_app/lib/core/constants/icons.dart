@@ -27,4 +27,8 @@ class CustomIcons {
   static const IconData privacyPolicy = HugeIcons.strokeRoundedLicense;
   static const IconData rateApp = HugeIcons.strokeRoundedStar;
   static const IconData signOut = HugeIcons.strokeRoundedLogout05;
+  static const IconData highlights = HugeIcons.strokeRoundedUserStory;
+  static const IconData photosVideos = HugeIcons.strokeRoundedImage01;
+  static const IconData events = HugeIcons.strokeRoundedFlag03;
+  static const IconData reels = HugeIcons.strokeRoundedPlayList;
 }

@@ -213,11 +213,11 @@ class _HeightScreenState extends State<HeightScreen> {
           ),
         ),
       ),
-      persistentFooterButtons: const [
-        // CustomRoundedButton(
-        //   text: 'Save',
-        //   onPressed: () {},
-        // ),
+      persistentFooterButtons: [
+        ElevatedButton(
+          child: const Text('Save'),
+          onPressed: () {},
+        ),
       ],
     );
   }

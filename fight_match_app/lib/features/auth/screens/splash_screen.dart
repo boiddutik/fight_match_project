@@ -17,7 +17,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // ref.read(authProvider.notifier).autoLogin(context);
-      navigateAndRemoveUntil(context, CreateProfileNameScreen());
+      navigateAndRemoveUntil(context, const CreateProfileNameScreen());
     });
   }
 

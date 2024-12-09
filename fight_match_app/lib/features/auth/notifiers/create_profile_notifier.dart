@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:fight_match_app/core/utils/navigators.dart';
-import 'package:fight_match_app/core/utils/username_generator.dart';
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
 import 'package:fight_match_app/features/auth/screens/create_profile_avatar_screen.dart';
 import 'package:fight_match_app/features/auth/screens/create_profile_dob_screen.dart';
@@ -66,6 +65,7 @@ class CreateProfileData {
 }
 
 class CreateProfileNotifier extends StateNotifier<CreateProfileData> {
+  // ignore: unused_field
   final AuthNotifier _auth;
   CreateProfileNotifier({required AuthNotifier auth})
       : _auth = auth,
