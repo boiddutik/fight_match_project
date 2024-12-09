@@ -1,4 +1,5 @@
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
+import 'package:fight_match_app/features/auth/screens/profile_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter/material.dart';
@@ -8,8 +9,8 @@ import '../../../core/utils/navigators.dart';
 import '../../../core/widgets/custom_regular_app_bar.dart';
 import 'edit_profile_screen.dart';
 
-class ProfileScreen extends ConsumerWidget {
-  const ProfileScreen({super.key});
+class UserPanelScreen extends ConsumerWidget {
+  const UserPanelScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -67,7 +68,13 @@ class ProfileScreen extends ConsumerWidget {
                         ),
                         ElevatedButton(
                           child: const Text('View Profile'),
-                          onPressed: () {},
+                          onPressed: () {
+                            navigate(
+                                context,
+                                ProfileScreen(
+                                  user: userProfile,
+                                ));
+                          },
                         ),
                       ],
                     ),

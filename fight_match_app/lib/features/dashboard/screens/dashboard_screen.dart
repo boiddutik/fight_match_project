@@ -7,7 +7,7 @@ import 'inbox_screen.dart';
 import 'match_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'profile_screen.dart';
+import 'user_panel_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -22,7 +22,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     MatchScreen(),
     PostScreen(),
     InboxScreen(),
-    ProfileScreen(),
+    UserPanelScreen(),
   ];
 
   @override
