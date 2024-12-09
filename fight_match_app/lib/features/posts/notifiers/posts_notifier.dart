@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fight_match_app/core/notifiers/loader_notifier.dart';
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
 import 'package:fight_match_app/features/dashboard/notifiers/dashboard_notifier.dart';
@@ -215,7 +213,7 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
   }) async {
     _loader.setLoadingTo(true);
 
-    final token = _auth.jwt;
+    // final token = _auth.jwt;
 
     try {
       // // Make API call

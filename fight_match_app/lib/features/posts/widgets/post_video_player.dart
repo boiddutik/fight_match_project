@@ -18,7 +18,6 @@ class PostVideoPlayer extends StatefulWidget {
 
 class PostVideoPlayerState extends State<PostVideoPlayer> {
   late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
