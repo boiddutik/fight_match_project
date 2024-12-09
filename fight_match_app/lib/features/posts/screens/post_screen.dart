@@ -118,7 +118,7 @@ class _PostScreenState extends ConsumerState<PostScreen> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 16.0, top: 10, bottom: 10),
               child: SizedBox(
                 width: 100,
                 child: ElevatedButton(
@@ -225,14 +225,14 @@ class _PostScreenState extends ConsumerState<PostScreen> {
             ),
             DraggableScrollableSheet(
               initialChildSize: 0.2,
-              minChildSize: 0.15,
-              maxChildSize: 0.35,
+              minChildSize: 0.06,
+              maxChildSize: 0.42,
               builder:
                   (BuildContext context, ScrollController scrollController) {
                 return Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Palette.textFieldHeader),
+                    border: Border.all(color: Palette.textField, width: 2),
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(20)),
                   ),
@@ -240,22 +240,20 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                     controller: scrollController,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 150, vertical: 16),
+                        padding: const EdgeInsets.only(
+                            left: 150, right: 150, top: 16),
                         child: Container(
                           height: 5,
                           width: 40,
                           margin: const EdgeInsets.only(bottom: 8.0),
                           decoration: BoxDecoration(
-                            color: Colors.grey[400],
+                            color: Palette.textField,
                             borderRadius: BorderRadius.circular(2.5),
                           ),
                         ),
                       ),
                       ListTile(
                         onTap: () {},
-                        dense: true,
-                        visualDensity: VisualDensity.compact,
                         leading: const Icon(CustomIcons.highlights),
                         title: const Text(
                           'Highlights',
@@ -263,8 +261,6 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                       ),
                       ListTile(
                         onTap: () {},
-                        dense: true,
-                        visualDensity: VisualDensity.compact,
                         leading: const Icon(CustomIcons.photosVideos),
                         title: const Text(
                           'Photo / Video',
@@ -272,8 +268,6 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                       ),
                       ListTile(
                         onTap: () {},
-                        dense: true,
-                        visualDensity: VisualDensity.compact,
                         leading: const Icon(CustomIcons.events),
                         title: const Text(
                           'Event',
@@ -281,8 +275,6 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                       ),
                       ListTile(
                         onTap: () {},
-                        dense: true,
-                        visualDensity: VisualDensity.compact,
                         leading: const Icon(CustomIcons.reels),
                         title: const Text(
                           'Reels',
