@@ -32,31 +32,37 @@ extension ConvertMediaType on String {
 // -----------------------------------------------------------------------------
 
 class Media {
-  final String? mediaId;
+  final String mediaId;
   final MediaType? mediaType;
   final String? mediaDescription;
   final String? mediaUrl;
-  final List<String>? likes;
-  final List<String>? unLikes;
-  final List<String>? comments;
-  final List<String>? shares;
-  final List<String>? views;
-  final List<String>? reports;
+  final List<String> likes;
+  final List<String> unLikes;
+  final List<String> comments;
+  final List<String> shares;
+  final List<String> views;
+  final List<String> reports;
   final File? mediaFile;
 
   Media({
-    this.mediaId,
+    String? mediaId,
     this.mediaType,
     this.mediaDescription,
     this.mediaUrl,
-    this.likes,
-    this.unLikes,
-    this.comments,
-    this.shares,
-    this.views,
-    this.reports,
+    List<String>? likes,
+    List<String>? unLikes,
+    List<String>? comments,
+    List<String>? shares,
+    List<String>? views,
+    List<String>? reports,
     this.mediaFile,
-  });
+  })  : mediaId = DateTime.now().toString(),
+        likes = likes ?? List.empty(growable: true),
+        unLikes = unLikes ?? List.empty(growable: true),
+        comments = comments ?? List.empty(growable: true),
+        shares = shares ?? List.empty(growable: true),
+        views = views ?? List.empty(growable: true),
+        reports = reports ?? List.empty(growable: true);
 
   Media copyWith({
     String? mediaId,
@@ -88,9 +94,7 @@ class Media {
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
-    if (mediaId != null) {
-      result.addAll({'mediaId': mediaId});
-    }
+    result.addAll({'mediaId': mediaId});
     if (mediaType != null) {
       result.addAll({'mediaType': mediaType!.type});
     }
@@ -100,24 +104,12 @@ class Media {
     if (mediaUrl != null) {
       result.addAll({'mediaUrl': mediaUrl});
     }
-    if (likes != null) {
-      result.addAll({'likes': likes});
-    }
-    if (unLikes != null) {
-      result.addAll({'unLikes': unLikes});
-    }
-    if (comments != null) {
-      result.addAll({'comments': comments});
-    }
-    if (shares != null) {
-      result.addAll({'shares': shares});
-    }
-    if (views != null) {
-      result.addAll({'views': views});
-    }
-    if (reports != null) {
-      result.addAll({'reports': reports});
-    }
+    result.addAll({'likes': likes});
+    result.addAll({'unLikes': unLikes});
+    result.addAll({'comments': comments});
+    result.addAll({'shares': shares});
+    result.addAll({'views': views});
+    result.addAll({'reports': reports});
     // mediaFile is intentionally not included in the JSON map
     return result;
   }
