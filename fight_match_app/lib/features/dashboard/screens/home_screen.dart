@@ -1,4 +1,5 @@
 import 'package:fight_match_app/core/constants/icons.dart';
+import 'package:fight_match_app/core/widgets/custom_regular_app_bar.dart';
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
 import 'package:fight_match_app/features/posts/notifiers/posts_notifier.dart';
 import 'package:fight_match_app/features/posts/widgets/post_card.dart';
@@ -18,25 +19,7 @@ class HomeScreen extends ConsumerWidget {
     int? profileCompletionPersentage =
         ref.watch(authProvider.notifier).getProfileCompletionPercentage();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-            onPressed: () {
-              navigate(context, const SearchScreen());
-            },
-            icon: const Icon(CustomIcons.search)),
-        title: const Text(
-          'FIghtMatch',
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                navigate(context, const NotificationScreen());
-              },
-              icon: const Icon(CustomIcons.notifications)),
-        ],
-      ),
+      appBar: const CustomRegularAppBar(title: 'FIghtMatch'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: posts == null
@@ -51,7 +34,7 @@ class HomeScreen extends ConsumerWidget {
               ),
       ),
       bottomNavigationBar: profileCompletionPersentage == null
-          ? SizedBox.shrink()
+          ? const SizedBox.shrink()
           : AspectRatio(
               aspectRatio: 16 / 3,
               child: Container(
@@ -59,12 +42,12 @@ class HomeScreen extends ConsumerWidget {
                 child: ListTile(
                   title: Text(
                       'Your profile is $profileCompletionPersentage% complete.'),
-                  subtitle: FittedBox(
+                  subtitle: const FittedBox(
                     child: Text(
                       'For best matches, please complete your profile.',
                     ),
                   ),
-                  trailing: CircleAvatar(
+                  trailing: const CircleAvatar(
                     backgroundColor: Palette.liteBlack,
                     child: Icon(
                       CustomIcons.next,

@@ -4,6 +4,7 @@ import 'package:hugeicons/hugeicons.dart';
 class CustomIcons {
   static const IconData hidePassword = HugeIcons.strokeRoundedViewOff;
   static const IconData showPassword = HugeIcons.strokeRoundedView;
+  static const IconData globalSearch = HugeIcons.strokeRoundedGlobalSearch;
   static const IconData calendar = HugeIcons.strokeRoundedCalendar03;
   static const IconData cover = HugeIcons.strokeRoundedInsertCenterImage;
   static const IconData avatar = HugeIcons.strokeRoundedUserCircle;

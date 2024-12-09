@@ -22,7 +22,64 @@ class AuthNotifier extends StateNotifier<Auth?> {
   AuthNotifier({required LoaderNotifier loader, required AuthApi authApi})
       : _loader = loader,
         _authApi = authApi,
-        super(null);
+        super(
+          Auth(
+            userId: "dummyUserId123",
+            userName: "dummyUser",
+            email: "dummy@example.com",
+            jwt: "dummyJwtToken",
+            rwt: "dummyRefreshToken",
+            profile: User(
+              id: "mikeTyson123",
+              userName: "IronMike",
+              email: "miketyson@example.com",
+              fullName: "Mike Tyson",
+              gender: "Male",
+              dob: DateTime(1966, 6, 30), // Mike Tyson's real birthday
+              country: "United States",
+              state: "Nevada",
+              city: "Las Vegas",
+              profession: "Professional Boxer",
+              bio:
+                  "Former undisputed heavyweight champion, also known as 'The Baddest Man on the Planet.'",
+              avatar:
+                  'https://upload.wikimedia.org/wikipedia/commons/e/ee/Mike_Tyson_Photo_Op_GalaxyCon_Austin_2023.jpg',
+              cover:
+                  'https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0307%2Fr1301595_1296x729_16%2D9.jpg',
+              height: 178.0, // Tyson's height in cm
+              weight: 100.0, // Approximate weight in kg
+              intensity: "Extreme",
+              goal: "Dominate the ring",
+              practicing: "Boxing",
+              conversations: ["convMike1", "convMike2"],
+              posts: ["postMike1", "postMike2"],
+              pinnedPosts: ["pinnedMike1"],
+              likedPosts: ["likedMike1", "likedMike2"],
+              unLikedPosts: ["unlikedMike1"],
+              commentedPosts: ["commentMike1"],
+              sharedPosts: ["sharedMike1"],
+              sentFollowRequests: ["userChampion1"],
+              receivedFollowRequests: ["userFan1"],
+              followers: ["userFan2", "userFan3"],
+              following: ["userLegend1", "userLegend2"],
+              blockList: ["blockedMike1"],
+              isOnline: true,
+              lastOnlineAt: DateTime.now().subtract(Duration(minutes: 30)),
+              lastOnlineAtVisible: true,
+              activityCount: 120,
+              isPrivateProfile: false,
+              isProfileMatchable: true,
+              wallets: ["walletMike1"],
+              sponsors: ["sponsorMike1"],
+              fights: ["fightLegend1", "fightLegend2"],
+              achievements: ["WBC Champion", "WBA Champion", "IBF Champion"],
+              refreshToken: "mikeTysonRefreshToken",
+              createdAt: DateTime.now().subtract(
+                  Duration(days: 365 * 20)), // Approximate account age
+              updatedAt: DateTime.now(),
+            ),
+          ),
+        );
 
   int? getProfileCompletionPercentage() {
     int totalFields = 0;

@@ -1,11 +1,9 @@
-import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_time_ago/get_time_ago.dart';
 
 import '../../../core/constants/icons.dart';
 import '../../../models/post.dart';
-import '../../../repositories/base_url.dart';
 
 class PostCard extends ConsumerWidget {
   final Post post;
@@ -16,7 +14,6 @@ class PostCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.read(authProvider);
     return Card.outlined(
       color: Colors.white,
       surfaceTintColor: Colors.white,
@@ -31,11 +28,10 @@ class PostCard extends ConsumerWidget {
               visualDensity: VisualDensity.compact,
               contentPadding: const EdgeInsets.symmetric(horizontal: 0),
               leading: CircleAvatar(
-                backgroundImage:
-                    NetworkImage('$baseUrl/${user!.profile.avatar}'),
+                backgroundImage: NetworkImage(post.userAvatar),
               ),
               title: Text(
-                user.profile.fullName.toString(),
+                post.userFullName,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -98,7 +94,7 @@ class PostCard extends ConsumerWidget {
                           itemExtent: double.infinity,
                           children: post.images.map<Widget>((image) {
                             return Image.network(
-                              '$baseUrl/$image',
+                              image,
                               fit: BoxFit.cover,
                             );
                           }).toList(),

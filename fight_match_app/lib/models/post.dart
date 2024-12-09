@@ -1,5 +1,8 @@
 class Post {
-  final String user;
+  final String userId;
+  final String userName;
+  final String userFullName;
+  final String userAvatar;
   final String privacy;
   final String title;
   final String description;
@@ -16,7 +19,10 @@ class Post {
   final String updatedAt;
 
   Post({
-    required this.user,
+    required this.userId,
+    required this.userName,
+    required this.userFullName,
+    required this.userAvatar,
     required this.privacy,
     required this.title,
     required this.description,
@@ -35,7 +41,10 @@ class Post {
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
-      user: json['user'],
+      userId: json['userId'],
+      userName: json['userName'],
+      userFullName: json['userFullName'],
+      userAvatar: json['userAvatar'],
       privacy: json['privacy'],
       title: json['title'],
       description: json['description'],
@@ -55,7 +64,10 @@ class Post {
 
   Map<String, dynamic> toJson() {
     return {
-      'user': user,
+      'userId': userId,
+      'userName': userName,
+      'userFullName': userFullName,
+      'userAvatar': userAvatar,
       'privacy': privacy,
       'title': title,
       'description': description,
@@ -71,5 +83,10 @@ class Post {
       'createdAt': createdAt,
       'updatedAt': updatedAt,
     };
+  }
+
+  @override
+  String toString() {
+    return 'Post(userId: $userId, userName: $userName, userFullName: $userFullName, userAvatar: $userAvatar, privacy: $privacy, title: $title, description: $description, images: $images, videos: $videos, comments: $comments, likes: $likes, unLikes: $unLikes, shares: $shares, views: $views, reports: $reports, id: $id, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }

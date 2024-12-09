@@ -7,6 +7,7 @@ import 'package:fight_match_app/features/auth/screens/create_profile_avatar_scre
 import 'package:fight_match_app/features/auth/screens/create_profile_dob_screen.dart';
 import 'package:fight_match_app/features/auth/screens/create_profile_location_screen.dart';
 import 'package:fight_match_app/features/auth/screens/create_profile_zip_screen.dart';
+import 'package:fight_match_app/features/dashboard/screens/dashboard_init_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -102,22 +103,23 @@ class CreateProfileNotifier extends StateNotifier<CreateProfileData> {
   }
 
   void addAvatar(BuildContext context, File avatar) {
-    state = state.copyWith(avatar: avatar);
-    _auth.createUser(
-      context: context,
-      email: state.email!,
-      password: state.password!,
-      profession: '...',
-      fullName: state.fullName!,
-      gender: state.gender!,
-      country: state.country!,
-      geoState: '...',
-      city: '...',
-      dob: state.dob!,
-      avatar: avatar,
-      cover: null,
-      userName: generateUsername(state.email!),
-    );
+    // state = state.copyWith(avatar: avatar);
+    // _auth.createUser(
+    //   context: context,
+    //   email: state.email!,
+    //   password: state.password!,
+    //   profession: '...',
+    //   fullName: state.fullName!,
+    //   gender: state.gender!,
+    //   country: state.country!,
+    //   geoState: '...',
+    //   city: '...',
+    //   dob: state.dob!,
+    //   avatar: avatar,
+    //   cover: null,
+    //   userName: generateUsername(state.email!),
+    // );
+    navigateAndRemoveUntil(context, const DashboardInitScreen());
   }
 }
 // -----------------------------------------------------------------------------

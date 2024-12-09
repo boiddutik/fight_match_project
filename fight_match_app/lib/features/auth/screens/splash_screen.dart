@@ -1,7 +1,8 @@
+import 'package:fight_match_app/core/utils/navigators.dart';
+import 'package:fight_match_app/features/auth/screens/create_profile_name_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/widgets/skeletonized_waiting_widget.dart';
-import '../notifiers/auth_notifier.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(authProvider.notifier).autoLogin(context);
+      // ref.read(authProvider.notifier).autoLogin(context);
+      navigateAndRemoveUntil(context, CreateProfileNameScreen());
     });
   }
 

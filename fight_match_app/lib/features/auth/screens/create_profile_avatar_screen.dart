@@ -11,7 +11,6 @@ import '../../../core/constants/icons.dart';
 import '../../../core/utils/pickers.dart';
 import '../../../core/utils/snackbar.dart';
 import '../notifiers/create_profile_notifier.dart';
-import '../widgets/auth_field.dart';
 
 class CreateProfileAvatarScreen extends ConsumerStatefulWidget {
   const CreateProfileAvatarScreen({super.key});
@@ -78,6 +77,9 @@ class _CreateProfileAvatarScreenState
                         child: CircleAvatar(
                           backgroundColor: Palette.textField,
                           radius: 120,
+                          backgroundImage: _selectedAvatar != null
+                              ? FileImage(_selectedAvatar!)
+                              : null,
                           child: _selectedAvatar == null
                               ? const Center(
                                   child: Icon(
@@ -86,13 +88,7 @@ class _CreateProfileAvatarScreenState
                                     color: Palette.darkGreen,
                                   ),
                                 )
-                              : ClipRRect(
-                                  borderRadius: BorderRadius.circular(150),
-                                  child: Image.file(
-                                    _selectedAvatar!,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                              : null,
                         ),
                       ),
                       Positioned(
@@ -104,12 +100,10 @@ class _CreateProfileAvatarScreenState
                             backgroundColor:
                                 Palette.textFieldHeader.withOpacity(0.4),
                             radius: 30,
-                            child: const Center(
-                              child: Icon(
-                                CustomIcons.camera,
-                                size: 30,
-                                color: Palette.darkGreen,
-                              ),
+                            child: const Icon(
+                              CustomIcons.camera,
+                              size: 30,
+                              color: Palette.darkGreen,
                             ),
                           ),
                         ),
@@ -133,7 +127,7 @@ class _CreateProfileAvatarScreenState
               }
               ref
                   .read(createProfileProvider.notifier)
-                  .addAvatar(context, _selectedAvatar!);
+                  .addAvatar(context, avatar!);
             },
             child: SvgPicture.asset(Svgs.go),
           ),

@@ -1,6 +1,5 @@
 import 'package:fight_match_app/core/constants/icons.dart';
 import 'package:fight_match_app/core/constants/svgs.dart';
-import 'package:fight_match_app/core/utils/navigators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,7 +8,6 @@ import '../../../core/constants/palette.dart';
 import '../../../core/utils/snackbar.dart';
 import '../notifiers/create_profile_notifier.dart';
 import '../widgets/auth_field.dart';
-import 'create_profile_screen.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});

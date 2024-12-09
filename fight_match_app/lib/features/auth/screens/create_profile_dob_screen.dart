@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import '../../../core/constants/icons.dart';
 import '../../../core/utils/snackbar.dart';
 import '../notifiers/create_profile_notifier.dart';
-import '../widgets/auth_field.dart';
 
 class CreateProfileDobScreen extends ConsumerStatefulWidget {
   const CreateProfileDobScreen({super.key});

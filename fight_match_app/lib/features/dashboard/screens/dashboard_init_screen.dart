@@ -1,7 +1,8 @@
+import 'package:fight_match_app/core/utils/navigators.dart';
+import 'package:fight_match_app/features/dashboard/screens/dashboard_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/skeletonized_waiting_widget.dart';
-import '../notifiers/dashboard_init_notifier.dart';
 
 class DashboardInitScreen extends ConsumerWidget {
   const DashboardInitScreen({super.key});
@@ -9,7 +10,11 @@ class DashboardInitScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(dashboardInitProvider.notifier).initialize(context);
+      // ref.read(dashboardInitProvider.notifier).initialize(context);
+      // ignore: prefer_const_constructors
+      Future.delayed(Duration(seconds: 2), () {
+        navigateAndRemoveUntil(context, const DashboardScreen());
+      });
     });
 
     return const SkeletonizedWaitingWIdget();

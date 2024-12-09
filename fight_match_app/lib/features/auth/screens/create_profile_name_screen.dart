@@ -1,11 +1,12 @@
+import 'package:fight_match_app/core/constants/icons.dart';
 import 'package:fight_match_app/core/constants/palette.dart';
 import 'package:fight_match_app/core/constants/svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/utils/snackbar.dart';
+import '../../../core/widgets/pop_up_dialog.dart';
 import '../notifiers/create_profile_notifier.dart';
-import '../widgets/auth_field.dart';
 
 class CreateProfileNameScreen extends ConsumerStatefulWidget {
   const CreateProfileNameScreen({super.key});
@@ -18,11 +19,29 @@ class CreateProfileNameScreen extends ConsumerStatefulWidget {
 class _CreateProfileNameScreenState
     extends ConsumerState<CreateProfileNameScreen> {
   final _fullNameController = TextEditingController();
-
+  bool _dialogShown = false;
   @override
   void dispose() {
     _fullNameController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_dialogShown) {
+      _dialogShown = true;
+      Future.microtask(() {
+        showPopUpDialog(
+          // ignore: use_build_context_synchronously
+          context: context,
+          iconPath: CustomIcons.globalSearch,
+          iconSize: 80,
+          title:
+              'Would you like to set up your profile for optimal matches or would you prefer to explore first?',
+        );
+      });
+    }
   }
 
   @override

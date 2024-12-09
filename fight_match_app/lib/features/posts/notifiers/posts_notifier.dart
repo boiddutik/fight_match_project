@@ -25,7 +25,38 @@ class PostsNotifier extends StateNotifier<List<Post>?> {
         _auth = auth,
         _postApi = postApi,
         _dashboardCounter = dashboardCounter,
-        super(null);
+        super(
+          [
+            Post(
+              id: "postId123",
+              userId: '11233444',
+              userName: 'dummyJoe',
+              userFullName: 'John Doe',
+              userAvatar:
+                  'https://images.pexels.com/photos/7045755/pexels-photo-7045755.jpeg?auto=compress&cs=tinysrgb&w=600',
+              privacy: "Public",
+              title: "My First Post",
+              description: "This is a dummy post created for testing purposes.",
+              images: [
+                'https://images.pexels.com/photos/2204179/pexels-photo-2204179.jpeg?auto=compress&cs=tinysrgb&w=600',
+                'https://images.pexels.com/photos/2204182/pexels-photo-2204182.jpeg?auto=compress&cs=tinysrgb&w=600',
+              ],
+              videos: [
+                'https://videos.pexels.com/video-files/6765232/6765232-sd_640_360_25fps.mp4'
+              ],
+              comments: ["comment1", "comment2", "comment3"],
+              likes: ["like1", "like2", "like3", "like4", "like5"],
+              unLikes: ["unlike1", "unlike2"],
+              shares: ["share1", "share2", "share3", "share4"],
+              views: ["view1", "view2", "view3", "view4", "view5", "view6"],
+              reports: ["report1"],
+              createdAt: DateTime.now()
+                  .subtract(const Duration(days: 1))
+                  .toIso8601String(),
+              updatedAt: DateTime.now().toIso8601String(),
+            ),
+          ],
+        );
 
   /// Creates a new post
   Future<void> createPost({

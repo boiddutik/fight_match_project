@@ -3,10 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter/material.dart';
 import '../../../core/constants/icons.dart';
+import '../../../core/constants/palette.dart';
 import '../../../core/utils/navigators.dart';
-import '../../../repositories/base_url.dart';
-import '../../dashboard/screens/notification_screen.dart';
-import '../../dashboard/screens/search_screen.dart';
+import '../../../core/widgets/custom_regular_app_bar.dart';
 import 'edit_profile_screen.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -15,27 +14,8 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userProfile = ref.watch(authProvider)!.profile;
-    // final userProfileNotifier = ref.read(profileProvider.notifier);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-            onPressed: () {
-              navigate(context, const SearchScreen());
-            },
-            icon: const Icon(CustomIcons.next)),
-        title: const Text(
-          'Profile',
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                navigate(context, const NotificationScreen());
-              },
-              icon: const Icon(Icons.notifications)),
-        ],
-      ),
+      appBar: const CustomRegularAppBar(title: 'Profile'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: SingleChildScrollView(
@@ -43,8 +23,8 @@ class ProfileScreen extends ConsumerWidget {
             children: [
               Card.filled(
                 elevation: 0,
-                color: const Color(0xFFededed),
-                surfaceTintColor: const Color(0xFFededed),
+                color: Palette.textField,
+                surfaceTintColor: Palette.textField,
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
@@ -53,8 +33,7 @@ class ProfileScreen extends ConsumerWidget {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage:
-                              NetworkImage('$baseUrl/${userProfile.avatar}'),
+                          backgroundImage: NetworkImage(userProfile.avatar),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -79,7 +58,7 @@ class ProfileScreen extends ConsumerWidget {
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
-                                    color: Color(0xFF5f5f5f),
+                                    color: Palette.textFieldHeader,
                                   ),
                                 ),
                               ),

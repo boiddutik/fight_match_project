@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/utils/snackbar.dart';
 import '../notifiers/create_profile_notifier.dart';
-import '../widgets/auth_field.dart';
 
 class CreateProfileGenderScreen extends ConsumerStatefulWidget {
   const CreateProfileGenderScreen({super.key});
