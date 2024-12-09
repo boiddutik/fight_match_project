@@ -178,8 +178,9 @@ class Post {
     if (description != null) result['description'] = description;
     if (createdAt != null) result['createdAt'] = createdAt!.toIso8601String();
     if (updatedAt != null) result['updatedAt'] = updatedAt!.toIso8601String();
-    if (medium != null)
+    if (medium != null) {
       result['medium'] = medium!.map((x) => x.toMap()).toList();
+    }
     if (likes != null) result['likes'] = likes;
     if (unLikes != null) result['unLikes'] = unLikes;
     if (comments != null) result['comments'] = comments;
