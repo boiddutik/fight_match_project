@@ -10,7 +10,6 @@ import '../../../core/utils/pickers.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/snackbar.dart';
-import '../notifiers/posts_notifier.dart';
 
 class PostScreen extends ConsumerStatefulWidget {
   const PostScreen({super.key});
@@ -91,14 +90,14 @@ class _PostScreenState extends ConsumerState<PostScreen> {
     }
 
     // Call the API function to create the post
-    await ref.read(postsProvider.notifier).createPost(
-          context: context,
-          title: caption,
-          type: 'Post',
-          description: '',
-          images: imageFiles,
-          videos: videoFiles,
-        );
+    // await ref.read(postsProvider.notifier).createPost(
+    //       context: context,
+    //       title: caption,
+    //       type: 'Post',
+    //       description: '',
+    //       images: imageFiles,
+    //       videos: videoFiles,
+    //     );
   }
 
   @override
@@ -162,7 +161,7 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                             border: InputBorder.none,
                             hintText: 'Share your thoughts',
                           ),
-                          maxLines: 4,
+                          maxLines: 6,
                         ),
                       ),
                     ],
@@ -253,14 +252,14 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                         ),
                       ),
                       ListTile(
-                        onTap: () {},
+                        onTap: _pickGallery,
                         leading: const Icon(CustomIcons.highlights),
                         title: const Text(
                           'Highlights',
                         ),
                       ),
                       ListTile(
-                        onTap: () {},
+                        onTap: _pickGallery,
                         leading: const Icon(CustomIcons.photosVideos),
                         title: const Text(
                           'Photo / Video',
@@ -274,7 +273,7 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                         ),
                       ),
                       ListTile(
-                        onTap: () {},
+                        onTap: _pickCamera,
                         leading: const Icon(CustomIcons.reels),
                         title: const Text(
                           'Reels',

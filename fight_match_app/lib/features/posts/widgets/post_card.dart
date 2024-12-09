@@ -1,3 +1,4 @@
+import 'package:fight_match_app/features/posts/widgets/post_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_time_ago/get_time_ago.dart';
@@ -28,10 +29,10 @@ class PostCard extends ConsumerWidget {
               visualDensity: VisualDensity.compact,
               contentPadding: const EdgeInsets.symmetric(horizontal: 0),
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(post.userAvatar),
+                backgroundImage: NetworkImage(post.creatorAvatar),
               ),
               title: Text(
-                post.userFullName,
+                post.creatorFullName,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -41,7 +42,7 @@ class PostCard extends ConsumerWidget {
               subtitle: Row(
                 children: [
                   Text(
-                    GetTimeAgo.parse(DateTime.parse(post.createdAt)),
+                    GetTimeAgo.parse(post.createdAt!),
                     style:
                         const TextStyle(fontSize: 12, color: Color(0xFFcccccc)),
                   ),
@@ -74,33 +75,45 @@ class PostCard extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    post.title,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    maxLines: 2,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        post.caption,
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        maxLines: 2,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 8),
-                  if (post.images.isNotEmpty)
-                    AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: CarouselView(
-                          itemExtent: double.infinity,
-                          children: post.images.map<Widget>((image) {
+                  AspectRatio(
+                    aspectRatio:
+                        post.postType == PostType.reel ? 9 / 16 : 16 / 9,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: CarouselView(
+                        itemExtent: double.infinity,
+                        children: post.medium!.map<Widget>((media) {
+                          if (media.mediaType == MediaType.image) {
                             return Image.network(
-                              image,
+                              media.mediaUrl!,
                               fit: BoxFit.cover,
                             );
-                          }).toList(),
-                        ),
+                          } else {
+                            return PostVideoPlayer(
+                              videoUrl: media.mediaUrl!,
+                              postType: post.postType,
+                            );
+                          }
+                        }).toList(),
                       ),
                     ),
+                  ),
                 ],
               ),
             ),
@@ -129,7 +142,7 @@ class PostCard extends ConsumerWidget {
                   Row(
                     children: [
                       Text(
-                        '${post.likes.length} Likes',
+                        '${post.likes!.length} Likes',
                         style: const TextStyle(
                           fontSize: 12,
                           color: Colors.black,
@@ -145,7 +158,7 @@ class PostCard extends ConsumerWidget {
                         ),
                       ),
                       Text(
-                        '${post.comments.length} comments',
+                        '${post.comments!.length} comments',
                         style: const TextStyle(
                           fontSize: 12,
                           color: Colors.black,
@@ -161,7 +174,7 @@ class PostCard extends ConsumerWidget {
                         ),
                       ),
                       Text(
-                        '${post.shares.length} shares',
+                        '${post.shares!.length} shares',
                         style: const TextStyle(
                           fontSize: 12,
                           color: Colors.black,
