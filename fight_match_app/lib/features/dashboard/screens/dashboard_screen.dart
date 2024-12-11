@@ -3,7 +3,7 @@ import 'package:fight_match_app/features/posts/screens/post_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/icons.dart';
 import 'home_screen.dart';
-import 'inbox_screen.dart';
+import '../../chat/screens/inbox_screen.dart';
 import 'match_screen.dart';
 import 'package:flutter/material.dart';
 

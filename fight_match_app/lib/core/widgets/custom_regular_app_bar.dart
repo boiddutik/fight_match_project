@@ -22,9 +22,9 @@ class CustomRegularAppBar extends StatelessWidget
         },
         icon: const Icon(CustomIcons.search),
       ),
-      title: const Text(
-        'FIghtMatch',
-        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+      title: Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
       ),
       actions: [
         IconButton(

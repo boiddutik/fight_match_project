@@ -48,6 +48,20 @@ class FightMatchApp extends StatelessWidget {
                 ),
           ),
         ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Palette.textFieldHeader,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side:
+                    const BorderSide(color: Palette.textFieldHeader, width: 2)),
+            minimumSize: const Size.fromHeight(48),
+            textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontFamily: 'Aileron',
+                  color: Palette.textFieldHeader,
+                ),
+          ),
+        ),
       ),
       home: const SplashScreen(),
     );

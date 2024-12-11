@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class CustomIcons {
+  static const IconData moreVert = Icons.more_vert;
+  // ---------------------------------------------------------------------------
   static const IconData hidePassword = HugeIcons.strokeRoundedViewOff;
   static const IconData showPassword = HugeIcons.strokeRoundedView;
   static const IconData globalSearch = HugeIcons.strokeRoundedGlobalSearch;
@@ -21,6 +23,7 @@ class CustomIcons {
   static const IconData comment = HugeIcons.strokeRoundedComment02;
   static const IconData share = HugeIcons.strokeRoundedLinkForward;
   static const IconData bookmark = HugeIcons.strokeRoundedBookmark01;
+  static const IconData back = HugeIcons.strokeRoundedArrowLeft01;
   static const IconData next = HugeIcons.strokeRoundedArrowRight01;
   static const IconData editProfile = HugeIcons.strokeRoundedUserEdit01;
   static const IconData changePassword = HugeIcons.strokeRoundedCircleLock01;
@@ -32,4 +35,8 @@ class CustomIcons {
   static const IconData photosVideos = HugeIcons.strokeRoundedImage01;
   static const IconData events = HugeIcons.strokeRoundedFlag03;
   static const IconData reels = HugeIcons.strokeRoundedPlayList;
+  static const IconData audioCall = HugeIcons.strokeRoundedCall;
+  static const IconData videoCall = HugeIcons.strokeRoundedVideo01;
+  static const IconData attachment = HugeIcons.strokeRoundedAttachment02;
+  static const IconData arrowUp = HugeIcons.strokeRoundedCircleArrowUp02;
 }

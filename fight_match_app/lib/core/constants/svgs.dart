@@ -21,4 +21,6 @@ class Svgs {
   static const String hundredPercent = '$assetPath/hundredPercent.svg';
   // ---------------------------------------------------------------------------
   static const String onboardCamera = '$assetPath/onboardCamera.svg';
+  // ---------------------------------------------------------------------------
+  static const String noNotifications = '$assetPath/noNotifications.svg';
 }
