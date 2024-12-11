@@ -3,8 +3,8 @@ import 'package:fight_match_app/core/constants/svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../core/utils/snackbar.dart';
-import '../notifiers/create_profile_notifier.dart';
+import '../../../../core/utils/snackbar.dart';
+import '../../../auth/notifiers/create_profile_notifier.dart';
 
 class CreateProfileZipScreen extends ConsumerStatefulWidget {
   const CreateProfileZipScreen({super.key});

@@ -2,16 +2,16 @@ import 'dart:io';
 
 import 'package:fight_match_app/core/utils/navigators.dart';
 import 'package:fight_match_app/features/auth/notifiers/auth_notifier.dart';
-import 'package:fight_match_app/features/auth/screens/create_profile_avatar_screen.dart';
-import 'package:fight_match_app/features/auth/screens/create_profile_dob_screen.dart';
-import 'package:fight_match_app/features/auth/screens/create_profile_location_screen.dart';
-import 'package:fight_match_app/features/auth/screens/create_profile_zip_screen.dart';
+import 'package:fight_match_app/features/profile/screens/create_profile_screens/create_profile_avatar_screen.dart';
+import 'package:fight_match_app/features/profile/screens/create_profile_screens/create_profile_dob_screen.dart';
+import 'package:fight_match_app/features/profile/screens/create_profile_screens/create_profile_location_screen.dart';
+import 'package:fight_match_app/features/profile/screens/create_profile_screens/create_profile_zip_screen.dart';
 import 'package:fight_match_app/features/dashboard/screens/dashboard_init_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../screens/create_profile_gender_screen.dart';
-import '../screens/create_profile_name_screen.dart';
+import '../../profile/screens/create_profile_screens/create_profile_gender_screen.dart';
+import '../../profile/screens/create_profile_screens/create_profile_name_screen.dart';
 
 class CreateProfileData {
   final String? email;

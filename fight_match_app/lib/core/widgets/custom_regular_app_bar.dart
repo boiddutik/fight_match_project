@@ -1,8 +1,8 @@
 import 'package:fight_match_app/core/constants/icons.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/navigators.dart';
-import '../../features/dashboard/screens/notification_screen.dart';
-import '../../features/dashboard/screens/search_screen.dart';
+import '../../features/notifications/screens/notification_screen.dart';
+import '../../features/search/screens/search_screen.dart';
 
 class CustomRegularAppBar extends StatelessWidget
     implements PreferredSizeWidget {

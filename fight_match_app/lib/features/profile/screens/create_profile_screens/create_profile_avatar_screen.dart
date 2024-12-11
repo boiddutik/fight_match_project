@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../../core/constants/icons.dart';
-import '../../../core/utils/pickers.dart';
-import '../../../core/utils/snackbar.dart';
-import '../notifiers/create_profile_notifier.dart';
+import '../../../../core/constants/icons.dart';
+import '../../../../core/utils/pickers.dart';
+import '../../../../core/utils/snackbar.dart';
+import '../../../auth/notifiers/create_profile_notifier.dart';
 
 class CreateProfileAvatarScreen extends ConsumerStatefulWidget {
   const CreateProfileAvatarScreen({super.key});

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vertical_weight_slider/vertical_weight_slider.dart';
 
-import '../../../core/constants/svgs.dart';
-import '../../../core/utils/measurement_converters.dart';
+import '../../../../core/constants/svgs.dart';
+import '../../../../core/utils/measurement_converters.dart';
 
 class HeightScreen extends StatefulWidget {
   const HeightScreen({super.key});

@@ -2,12 +2,12 @@ import 'package:fight_match_app/features/dashboard/notifiers/dashboard_notifier.
 import 'package:fight_match_app/features/posts/screens/post_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/icons.dart';
-import 'home_screen.dart';
+import '../../home/screens/home_screen.dart';
 import '../../chat/screens/inbox_screen.dart';
-import 'match_screen.dart';
+import '../../match/screens/match_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'user_panel_screen.dart';
+import '../../settings/screen/settings_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -22,7 +22,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     MatchScreen(),
     PostScreen(),
     InboxScreen(),
-    UserPanelScreen(),
+    SettingsScreen(),
   ];
 
   @override

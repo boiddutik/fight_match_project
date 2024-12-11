@@ -1,5 +1,5 @@
 import 'package:fight_match_app/core/utils/navigators.dart';
-import 'package:fight_match_app/features/auth/screens/create_profile_name_screen.dart';
+import 'package:fight_match_app/features/profile/screens/create_profile_screens/create_profile_name_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/widgets/skeletonized_waiting_widget.dart';
